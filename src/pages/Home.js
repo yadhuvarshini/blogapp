@@ -9,14 +9,13 @@ import {auth,db} from '../firebase-config';
   useEffect(() =>{
     const getPosts = async () => {
       const data = await getDocs(postsCollection);
-      setPostList(data.docs.map((doc) => ({...doc.data(), id:doc.id})));
+      setPostList(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
     };
 
     getPosts();
   });
 
   
-
   return (
     <div className="homePage">
       {postList.map((post) => {
@@ -24,15 +23,17 @@ import {auth,db} from '../firebase-config';
           <div className="post">
             <div className="postHeader">
               <div className="title">
-                <h1> {post.title}</h1>
+                <h1> {post.title} </h1>
               </div>
               
             </div>
-            <div className="postTextContainer"> {post.postText} </div>
-            {/* <h3>@{post.author.name}</h3> */}
+            <div className="postTextContainer">  </div>
+            <h3>@{post.author.name}</h3>
+            {post.posttext}
+                                                                                                 
           </div>
         );
-      })}
+        })}
     </div>
   )
 }
